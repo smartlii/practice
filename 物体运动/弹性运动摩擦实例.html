@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		ul {
+			position: relative;
+			width: 800px;
+			height: 200px;
+		}
+		ul .ele {
+			float: left;
+			width: 198px;
+			height: 198px;
+			border: 1px solid black;
+			text-align: center;
+			line-height: 198px;
+		}
+		ul li.bg {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 200px;
+			height: 200px;
+			background: orange;
+			opacity: 0.4;
+		}
+	</style>
+</head>
+<body>
+	<ul id="ul1">
+		<li class="ele">Web</li>
+		<li class="ele">YC</li>
+		<li class="ele">JC</li>
+		<li class="ele">CST</li>
+		<li class="bg"></li>
+	</ul>
+	<script>
+		// 在目标点左面的时候加速运动 右面的时候减速运动
+		var oUl = document.getElementById('ul1');
+		var oLi = oUl.getElementsByTagName('li');
+		var oBg = oLi[oLi.length - 1];
+		for (var i =0; i < oLi.length - 1; i++) {
+			oLi[i].onmouseover = function () {
+				startMove(oBg,this.offsetLeft);
+			}
+		}
+		function startMove (obj,iTarget) {
+			var iSpeed = 0;
+			var u = 0.7;			
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function () {
+				iSpeed = iSpeed + (iTarget - obj.offsetLeft) / 5; 
+				iSpeed = iSpeed * u; 
+				obj.style.left = obj.offsetLeft + iSpeed + 'px';	
+				document.title = 'bg:' + obj.offsetLeft + '| target:' + iTarget;	
+			}, 30);
+		}
+	</script>
+</body>
+</html>

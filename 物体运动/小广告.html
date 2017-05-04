@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 100px;
+			height: 100px;
+			background: yellow;
+		}
+		body {
+			height: 5000px;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"> 买药 </div>
+	<script>
+		var oDiv = document.getElementById('div1');
+		function getStyle (obj,attr) {
+			if (obj.currentStyle) {
+				return obj.currentStyle[attr];
+			}else {
+				return window.getComputedStyle(obj,false)[attr];
+			}
+		}
+		
+		function startMove (obj,attr,iTarget) {
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function () {
+				var iCur
+				if (attr == 'opacity') {
+					iCur = parseInt(parseFloat(getStyle(obj,attr) * 100));
+				}else {
+					iCur = parseInt(getStyle(obj,attr));
+				}
+				var iSpeed = (iTarget - iCur) / 7;
+				
+				if (iCur == iTarget) {
+					clearInterval(obj.timer);
+				}else {
+					if (attr == 'opacity') {
+						obj.style.opacity = Math.floor((iCur + iSpeed)) / 100;
+					}else {
+						obj.style[attr] = iCur + iSpeed + 'px';
+					}
+				}
+						
+			},30)
+		}	 
+		window.onscroll = function () {
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;			
+			var iTarget = scrollTop + (clientHeight / 2) - oDiv.offsetHeight / 2;			
+			iTarget = parseInt(iTarget);
+			startMove(oDiv,'top',iTarget);
+		}	
+	</script>
+</body>
+</html>

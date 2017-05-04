@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: orange;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<script>
+		// 0 --> 300 加速度为2 的匀加速运动
+		// 300 --> 600 加速度为-2 的匀减速运动
+		// 600 --> 300 加速度为2 的匀加速运动
+		// 300 --> 0 加速度为-2 的匀减速运动
+		// ......
+		
+		// 在目标点左面的时候加速运动 右面的时候减速运动
+		
+		var oDiv = document.getElementById('div1');
+		oDiv.onclick = function () {
+			startMove(300);
+		}
+		var iSpeed = 0;
+		// 加速度
+		var a = 2;
+		function startMove (iTarget) {
+			var oDiv = document.getElementById('div1');
+			setInterval(function () {
+				if (oDiv.offsetLeft < iTarget) {
+					iSpeed = iSpeed + a;
+				}else {
+					iSpeed = iSpeed - a;
+				}
+				oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px';				
+			}, 30);
+		}
+	</script>
+</body>
+</html>

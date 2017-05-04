@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			position: absolute;
+			left: 500px;
+			top: 100px;
+			width: 100px;
+			height: 100px;
+			background: orangered;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<script>
+		var oDiv = document.getElementById('div1');
+		var timer = null;
+		var alpha = 100;
+		oDiv.onclick = function () {
+			startMove(50);
+		}
+		function startMove (iTarget) {
+			clearInterval(timer);
+			timer = setInterval (function () {
+				var iSpeed = (iTarget - alpha) / 8;
+				if (iSpeed > 0) {
+					iSpeed = Math.ceil(iSpeed);
+				}else {
+					iSpeed = Math.floor(iSpeed);
+				}	
+				if (alpha == iTarget) {
+					clearInterval(timer);
+				}else {
+					oDiv.style.opacity = (alpha + iSpeed) / 100;					
+					alpha = alpha + iSpeed;
+				}
+			},30);			
+		}
+	</script>
+</body>
+</html>	
+</body>
+</html>

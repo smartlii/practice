@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			position: absolute;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background: orange;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<script>
+		// 初速度为 20 的 加速度为-2的 匀减速运动
+		// 速度 20 --> 0        回头
+		//		0 --> -infinite 出了左边界
+		// 加速度 为 -2 保持不变
+		
+		var oDiv = document.getElementById('div1');
+		oDiv.onclick= function () {
+			startMove();
+		}
+		var iSpeed = 20;
+		// 加速度 
+		var a = -1;
+		function startMove () {
+			var oDiv = document.getElementById('div1');
+			setInterval(function () {
+				iSpeed = iSpeed + a;
+				oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px';
+			}, 30);
+		}
+	</script>
+</body>
+</html>
