@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dome1</title>
+	<script type="text/javascript">
+		window.onload = function() {
+			var oDiv = document.getElementById('div1');
+			var oInput = document.getElementById('input1');
+			var oInput1 = document.getElementById('input2');
+			var arr = oDiv.innerHTML.split(',');
+			oInput.onclick = function(){
+				arr.unshift(arr[arr.length-1]);
+				arr.pop();
+				oDiv.innerHTML = arr;
+			}
+			oInput1.onclick = function(){
+				arr.push(arr[0]);
+				arr.shift();
+				oDiv.innerHTML = arr;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">1,2,3,4</div>
+	<input type="button" value="向右" id="input1">
+	<input type="button" value="向左" id="input2">
+</body>
+</html>

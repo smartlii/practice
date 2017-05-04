@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo2</title>
+	<style>
+		.box1{
+			height: 100px;
+			width: 100px;
+			background: red;
+			position: absolute;
+			top: 100px;
+			left: 100px;
+		}
+		.box2{
+			height: 100px;
+			width: 100px;
+			background: yellow;
+			position: absolute;
+			top: 50px;
+			left: 250px;
+		}
+		.box3{
+			height: 100px;
+			width: 100px;
+			background: blue;
+			position: absolute;
+			top: 100px;
+			left: 400px;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var oInputLeft = document.getElementById('left');
+			var oInputRight = document.getElementById('right');
+			var arr = [];
+			function getStyle(obj,attr){
+				if (obj.currentStyle) {
+					return obj.currentStyle[attr];
+
+				}else{
+					return getComputedStyle(obj,false)[attr];
+				}
+			}
+			var oDiv = document.getElementsByTagName('div');
+			for (var i = 0; i < oDiv.length; i++) {
+				arr.push([ getStyle( oDiv[i],'left'),getStyle(oDiv[i],"top")]);
+			}
+			console.log(arr);
+			oInputLeft.onclick = function(){
+				arr.push(arr[0]);
+				arr.shift();
+				for (var i = 0; i < oDiv.length; i++) {
+					oDiv[i].style.left = arr[i][0];
+					oDiv[i].style.top = arr[i][1];
+				}
+			}
+			oInputRight.onclick = function(){
+				arr.unshift(arr[arr.length-1]);
+				arr.pop();
+				for (var i = 0; i < oDiv.length; i++) {
+					oDiv[i].style.left = arr[i][0];
+					oDiv[i].style.top = arr[i][1];
+				}
+			}
+
+
+		}
+	</script>	
+</head>
+<body>
+	<input type="button" value="<-" id="left">
+	<input type="button" value="->" id="right">
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+</body>
+</html>

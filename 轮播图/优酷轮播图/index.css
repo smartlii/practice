@@ -1,0 +1,47 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+.wrapper {
+	position: relative;
+	width: 800px;
+	height: 300px;
+	margin:  0 auto;
+	border: 1px solid black;
+	overflow: hidden;
+}
+.wrapper .btn {
+	position: absolute;
+	top: 50%;
+	margin-top: -25px;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	background: gray;
+	opacity: 0.2;
+	cursor: pointer;
+	z-index: 1000;
+}
+.wrapper .btn:hover {
+	opacity: 1;
+}
+.wrapper .btnLeft {
+	left: 20px;
+}
+.wrapper .btnRight {
+	right: 20px;
+}
+.wrapper .move {
+	position: absolute;
+	top: 50%;
+	margin-top: -90px;
+	width: 250px;
+	height: 180px;
+	float: left;
+	opacity: 0.4;
+}
+.wrapper .move img {
+	width: 100%;
+	height: 100%;
+}
