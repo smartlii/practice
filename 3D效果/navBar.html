@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+			list-style: none;
+		}
+		.clearFloat:after {
+			content: '';
+			visibility: hidden;
+			height: 0;
+			display: block;
+			clear: both;
+		}
+		/* 初始化ul 和 li */
+		.navBar {
+			display: block;
+			width: 900px;
+			margin: 100px auto;
+		}
+		.navBar li {
+			position: relative;
+			float: left;
+			border-right: 1px solid #94c0be;
+		}
+		@font-face {
+			font-family: "MyWord";
+    		src: url("Ginga.ttf");
+		}
+		/* 初始化a 的大小 撑开 li的 大小 */
+		.navBar li a {
+			position: relative;
+			color: #fff;
+			display: block;
+			font-family: 'MyWord';
+			overflow: visible;
+			line-height: 50px;
+			font-size: 30px;
+			text-align: center;
+			width: 100px;
+			height: 50px;
+		}
+		/*
+			景深 突显出3d效果 需要设置在最外层 而且不能设置overflow:hidden
+			将-webkit-font-smoothing设置为antialiased 将字体变的非常清晰
+		*/
+		.navBar .three3d {
+			position: relative;
+			-webkit-perspective: 200px;
+			        perspective: 200px;
+            -webkit-transition: all 0.6s ease;
+					transition: all 0.6s ease;
+            -webkit-font-smoothing: antialiased;
+					font-smoothing: antialiased;
+		}
+		/*
+		    transform-style: 其中flat值为默认值，表示所有子元素在2D平面呈现。
+			                 preserve-3d表示所有子元素在3D空间中呈现。
+
+            pointer-events属性值详解
+                   auto——效果和没有定义pointer-events属性相同，
+				         鼠标不会穿透当前层。
+						 在SVG中，该值和visiblePainted的效果相同。
+
+                   none——元素不再是鼠标事件的目标，
+				         鼠标不再监听当前层而去监听下面的层中的元素。
+						 但是如果它的子元素设置了pointer-events为其它值，
+						 比如auto，鼠标还是会监听这个子元素的。
+			这里也就是 鼠标点击span 时 要a监听这个事件。
+
+		*/
+
+		.navBar .box3d {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+			-webkit-transition: all 0.3s ease-out;
+					transition: all 0.3s ease-out;
+			/* 把front 和 back 的盒子整体垂直屏幕的方向 往后移动 */
+		    -webkit-transform: translateZ(-25px);
+					transform: translateZ(-25px);
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			-webkit-pointer-events: none;
+					pointer-events: none;
+		}
+		/* a监听到悬浮操作后 控制 front 和 back 的背景色 */
+		.navBar .active, .navBar a:hover .front, .navBar a:hover .back {
+			background-color: #51938f;
+			background-image: linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+		}
+		/* 初始化 front 和 back */
+		.front, .back {
+			display: block;
+			width: 100%;
+			height: 50px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: #74adaa;
+			color: white;
+			-webkit-pointer-events: none;
+					pointer-events: none;
+			line-height: 50px;			
+		}
+		
+		/* 这里考虑一下如何凑成一个正方体 就明白了 */
+		
+		/* 下面front 和 back 旋转都是按origin旋转 所以back旋转90后 front 在back的中轴线上 而back高为50px 所以让front 向前25px */
+		.front {
+			-webkit-transform: rotatex(0deg) translatez(25px);
+			-moz-transform: rotatex(0deg) translatez(25px);
+			-ms-transform: rotatex(0deg) translatez(25px);
+			-o-transform: rotatex(0deg) translatez(25px);
+			transform: rotatex(0deg) translatez(25px);
+		}
+		/* 旋转90度后深处 front 水平轴上随意要向下移动 这时 back的中轴正好指向上方 而front高度为50 正好向上移动25px */
+		.back {
+			-webkit-transform: rotatex(-90deg) translatez(25px);
+			-moz-transform: rotatex(-90deg) translatez(25px);
+			-ms-transform: rotatex(-90deg) translatez(25px);
+			-o-transform: rotatex(-90deg) translatez(25px);
+			transform: rotatex(-90deg) translatez(25px);
+		}
+		/* 处理悬浮效果 */
+		.three3d:not(.active):hover .box3d {
+			-wekbit-transform: translateZ(-25px) rotateX(90deg);
+					transform: translateZ(-25px) rotateX(90deg);
+		}
+
+
+
+		/* 处理下拉效果 */
+		/* 旋转下拉列表值水平 看不见 */
+		.navBar .downList {
+			position: absolute;
+			width: 150px;
+			-webkit-transform: rotateX(-90deg);
+			transform: rotateX(-90deg);
+			left: 0;
+			top: 55px;
+			-webkit-transition: all 0.3s ease-in;
+			transition: all 0.3s ease-in;			
+		}
+		.navBar .downList li {
+			border: none;
+		}
+		/* hover 的时候可以看见 */
+		.navBar li:hover .downList{
+			opacity: 1;
+			-webkit-transform: rotateX(0deg);
+			transform: rotateX(0deg);			
+		}
+	</style>
+</head>
+<body>
+	<div class="navWrapper">
+		<ul class="navBar clearFloat">
+			<li>
+				<a href="#" class="three3d">
+					Css3
+					<span class="box3d">
+						<span class="front">Css3</span>
+						<span class="back">Css3</span>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="three3d">
+					Html5
+					<span class="box3d">
+						<span class="front">Html5</span>
+						<span class="back">Html5</span>
+					</span>						
+				</a>
+				<ul class="downList">
+					<li>
+						<a href="#" class="three3d">
+							Canvas
+							<span class="box3d">
+								<span class="front">Canvas</span>
+								<span class="back">Canvas</span>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="three3d">
+							Svg
+							<span class="box3d">
+								<span class="front">Svg</span>
+								<span class="back">Svg</span>
+							</span>
+						</a>						
+					</li>
+					<li>
+						<a href="#" class="three3d">
+							Applicache
+							<span class="box3d">
+								<span class="front">Applicache</span>
+								<span class="back">Applicache</span>
+							</span>
+						</a>						
+					</li>
+				</ul>			
+			</li>
+			<li>
+				<a href="#" class="three3d">
+					JQuery
+					<span class="box3d">
+						<span class="front">jQuery</span>
+						<span class="back">jQuery</span>
+					</span>						
+				</a>				
+			</li>
+			<li>
+				<a href="#" class="three3d">
+					FIS
+					<span class="box3d">
+						<span class="front">FIS</span>
+						<span class="back">FIS</span>
+					</span>						
+				</a>				
+			</li>
+			<li>
+				<a href="#" class="three3d">
+					Node
+					<span class="box3d">
+						<span class="front">Node</span>
+						<span class="back">Node</span>
+					</span>						
+				</a>				
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
