@@ -23,7 +23,7 @@ mySlider
 轮播图
 -------
 * 层叠轮播图<br>
-  *[demo1](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/%E8%BD%AE%E6%92%AD%E5%9B%BE/%E5%B1%82%E5%8F%A0%E8%BD%AE%E6%92%AD%E5%9B%BE/demo1.html)<br>
+ *[demo1](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/%E8%BD%AE%E6%92%AD%E5%9B%BE/%E5%B1%82%E5%8F%A0%E8%BD%AE%E6%92%AD%E5%9B%BE/demo1.html)<br>
   *[demo2](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/%E8%BD%AE%E6%92%AD%E5%9B%BE/%E5%B1%82%E5%8F%A0%E8%BD%AE%E6%92%AD%E5%9B%BE/demo2.html)<br>
   *[demo3](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/%E8%BD%AE%E6%92%AD%E5%9B%BE/%E5%B1%82%E5%8F%A0%E8%BD%AE%E6%92%AD%E5%9B%BE/demo3.html)<br>
 * [优酷轮播图](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/%E8%BD%AE%E6%92%AD%E5%9B%BE/%E4%BC%98%E9%85%B7%E8%BD%AE%E6%92%AD%E5%9B%BE/index.html)<br>
