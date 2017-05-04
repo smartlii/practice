@@ -16,10 +16,6 @@
 * [缓冲运动](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/%E7%89%A9%E4%BD%93%E8%BF%90%E5%8A%A8/%E7%BC%93%E5%86%B2.html)<br>
 * [透明度变化](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/%E7%89%A9%E4%BD%93%E8%BF%90%E5%8A%A8/%E9%80%8F%E6%98%8E%E5%BA%A6%E5%8F%98%E5%8C%96.html)<br>
 
-mySlider
---------
-* [贪吃蛇](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/mySlider/slider.html)<br>
-
 轮播图
 -------
 * 层叠轮播图<br>
