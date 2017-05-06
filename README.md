@@ -38,3 +38,8 @@
 -------
 * [德邦官网](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/%E5%BE%B7%E9%82%A6%E5%BF%AB%E9%80%92/index.html)<br>
 
+css3练习
+------
+* [弹出相应索引](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/css3%E7%BB%83%E4%B9%A0/alertIndex.html)<br>
+* [改变样式](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/css3%E7%BB%83%E4%B9%A0/css3Change.html)<br>
+* [导航栏](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/css3%E7%BB%83%E4%B9%A0/css3nav.html)<br>
