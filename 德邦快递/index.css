@@ -1,0 +1,439 @@
+*{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+	text-decoration:none;
+	font-family: "微软雅黑";
+	font-weight: normal;
+	font-style:normal;
+
+}
+/*注册背景*/
+.mask{
+	position:absolute;
+	background-color: #373c64;
+	opacity:0.5;
+	z-index: 100;
+	display:none;
+}
+/*注册*/
+.login{
+	position:absolute;
+	width:500px;
+	height:296px;
+	background-color: #fff;
+	z-index:1000;
+	color:#666;
+	display: none;
+}
+.login .close{
+	width:50px;
+	height:50px;
+	line-height:50px;
+	margin-left:430px;
+	text-align:right;
+	font-size:28px;
+	cursor:pointer;
+}
+.login p{
+	margin-bottom: 25px;
+	display:inline-block;
+}
+.login p label{/*//label原本是内联元素，不能设置宽高*/
+	display: inline-block;
+	width:75px;
+	font-size:14px;
+	margin-right:5px;
+	text-align:right;
+}
+.login p input{
+	width:348px;
+	height: 40px;
+	color: #a9a9a9;
+	border:1px solid #ddd;
+	padding-left: 10px;
+	font-size:14px;
+}
+.login p #textNum{
+	width:176px;
+}
+.login p #textBtn{
+	width:158px;
+	text-align:center;
+	background-color: #f7f7f7;
+}
+.login p #textBtn:hover{
+	background-color: #eee;
+}
+.login p #checkBtn{
+	width:15px;
+	vertical-align: middle;
+}
+.login p span{
+	font-size:14px;
+	color:#666;
+}
+.login p {
+	/*color:#1b66c7;*/
+}
+.login p a:hover{
+	text-decoration: underline;
+}
+.login p:last-child{
+	padding-left:80px;
+}
+
+.header{
+	/*height:93px;*/
+	background-color: #373c64;
+}
+.header .center{
+	width:980px;
+	height:93px;
+	line-height:93px;
+	margin:0 auto;
+	background: url('images/logo.png') no-repeat;
+}
+.header .center .loginText{
+	float:right;
+	color:#f7f7f7;
+}
+.header .center .loginText a{
+	color:#fff;
+	margin:0 10px;
+}
+.header .center .loginText a:hover{
+	text-decoration:underline;
+}
+
+.main{
+	width:980px;
+	/*border:1px solid red;*/
+	margin:0 auto;
+}
+
+/*招聘职位*/
+.main .jobHeader{
+	margin-top:22px;
+}
+.main .title{
+	background:url('images/span.png') no-repeat center left;
+}
+.main h3{
+	position:relative;
+	height:30px;
+	font-size:18px;
+	font-weight:bold;
+	display:inline-block;
+	margin:22px 18px 12px 20px;
+}
+/*选择相关城市*/
+.job .default{
+	display:inline-block;
+	position:relative;
+	width: 230px;
+	height: 32px;
+	line-height:32px;
+	padding-left:8px;
+	color:#9A9A9A;
+	margin-left:15px;
+	border:1px solid #C8C8C8;
+	background-color:#fff;
+}
+.city{
+	position:relative;
+}
+.city .chooCity{
+	position:absolute;
+	left:139px;
+	top:-74px;
+	width:690px;
+	/*height:300px;*/
+	/*height:;*/
+	z-index:10;
+	/*border:1px solid #000;*/
+	background-color: #fff;
+	border:1px solid #f3f3f3;
+	display:none;
+}
+.chooCity .cityLet{
+	height:32px;
+	line-height:32px;
+	border-bottom:1px solid #f3f3f3;
+	/*overflow:hidden;*/
+}
+.cityLet li{
+	float:left;
+	width: 52px;
+	height: 32px;
+	line-height:32px;
+	text-align:center;
+	background-color: #fff;
+	font-size:16px;
+	margin-right:30px;
+	margin-left:10px;
+	cursor:pointer;
+}
+.cityLet .select{
+	background-color: #373c64;
+	color:#fff;
+}
+.chooCity .cityGath{
+	padding:20px 0;
+}
+.cityGath li{
+	float:left;
+	font-size:14px;
+	color:#999;
+	width:75px;
+	margin-right:45px;
+	margin-left:18px;
+	line-height:30px;
+	margin-bottom: 20px;
+	cursor:pointer;
+}
+.cityGath li:hover{
+	text-decoration:underline;
+}
+/*输入关键字*/
+.job .key{
+	width: 323px;
+	height: 30px;
+	color:#9A9A9A;
+	font-size:16px;
+	margin-top:15px;
+	margin-left:15px;
+	background-color: #fff;
+	padding-left:8px;
+}
+/*点击搜索*/
+.job .search{
+	width: 136px;
+	height: 34px;
+	background-color: #373c64;
+	margin-top:15px;
+	margin-left:25px;
+	color:#fff;
+}
+/*职位种类*/
+.job .kind{
+	position:relative;
+}
+.job .kind li{
+	float:left;
+	width:100px;
+	height: 40px;
+	border-right:1px solid #f3f3f3;
+	text-align:center;
+	line-height:40px;
+}
+.job .kind li a{
+	font-size:14px;
+	color:#4b4b4b;
+	font-weight:700;
+}
+.jobHeader:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+/*职位相关信息*/
+.city .introduce{
+	/*height: 485px;*/
+	margin-top:25px;
+	/*border:1px solid blue;*/
+}
+.introduce ul:not([class="name"]){
+	height:42px;
+	color:#8b8b8b;
+	padding-left:40px;
+	height:36px;
+	line-height:36px;
+	margin:auto 0;
+	font-size:14px;
+}
+.introduce .name{
+	float:left;
+	width:940px;
+	padding-left:40px;
+	background-color: #f6f6f6;
+	height:36px;
+	line-height:36px;
+	color:#999;
+	margin:0 auto;
+}
+.introduce ul li{
+	float:left;
+	height:42px;
+}
+.introduce ul li:first-of-type{
+	width:230px;
+	height:42px;
+}
+.introduce ul li:nth-of-type(2){
+	width:145px;
+}
+.introduce ul li:nth-of-type(3){
+	width:110px;
+}
+.introduce ul li:nth-of-type(4){
+	width:165px;
+}
+.introduce ul li:nth-of-type(5){
+	width:170px;
+}
+.introduce ul .spl6{
+	width:120px;
+}
+.introduce:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+.introduce li a{
+	color:#4b4f71;
+}
+.introduce .insert:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+/*.introduce .p{
+	overflow:hidden;
+}*/
+.introduce p{
+	/*margin-top:20px;*/
+	font-size:12px;
+	padding-left:40px;
+	padding-top:25px;
+	line-height:2px;
+	/*display:none;*/
+}
+.introduce p a:hover{
+	text-decoration:underline;
+}
+
+.page{
+	text-align:center;
+	margin-top:30px;
+}
+.page a{
+	display:inline-block;
+	border:1px solid #e6e7e8;
+	margin-left:-6px;
+	height:34px;
+	line-height:34px;
+	width:38px;
+	color:#494e7b;
+	text-align: center;
+}
+.page a span{
+	font-weight:700;
+	font-size:12px;
+	text-align: center;
+}
+.page .last{
+	width:66px;
+	background:url('images/last.png') no-repeat 15px center;
+	padding-left:25px;
+	vertical-align:center;
+}
+.page .next{
+	width:60px;
+	padding-right:25px;
+	background:url('images/next.png') no-repeat 59px center;
+}
+.page .select{
+	background-color:#373c64;
+	color:#fff; 
+}
+/*公司简介*/
+.company .viduo{
+	float:left;
+	margin-top:20px;
+	margin-bottom: 20px
+}
+.company .text{
+	margin-top:20px;
+	width: 540px;
+	height: 260px;
+	float:right;
+}
+.company .text p{
+	text-indent: 2em;
+	line-height:28px;
+	font-size:13px;
+}
+.company:after{
+	content: "";
+	display: block;
+	clear:both;
+}
+/*招聘流程*/
+.flow img{
+	max-width:980px;
+}
+/*感受德邦*/
+.feel .pic{
+	width: 900px;
+	height:370px;
+	/*border:1px solid blue;*/
+}
+.main .feel{
+	position: relative;
+}
+.main .feel .pic{
+	position: relative;
+	width: 910px;
+	height: 370px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.main .feel .pic .move{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -185px;
+	margin-left: -320px;
+	width: 640px;
+	height: 370px;
+}
+.main .feel .pic .move img{
+	width: 100%;
+	height: 100%;
+}
+.main .feel .prev, .main .feel .next{
+	position: absolute;
+	width: 25px;
+	height: 108px;
+	top: 50%;
+	margin-top: -20px;
+	z-index: 5;
+}
+.main .feel .prev{
+	left: -15px;
+	background: url(images/lunbo.png) 0 3px no-repeat;
+}
+.main .feel .prev:hover{
+	background: url(images/lunbo.png) 0 -102px no-repeat;
+}
+.main .feel .next{
+	display:block !important;
+	right: -15px;
+	background: url(images/lunbo.png) -30px 3px no-repeat;
+}
+.main .feel .next:hover{
+	background: url(images/lunbo.png) -30px -104px no-repeat;
+}
+
+/*footer*/
+.footer{
+	height:80px;
+	background-color: #373c64;
+	margin-top:70px;
+}
+.footer p{
+	text-align:center;
+	line-height:80px;
+	color:#aaaec9;
+}
