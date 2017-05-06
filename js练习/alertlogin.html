@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>登陆界面的弹出框</title>
-	<script type="text/javascript" src="jquery.js"></script>
 	<style>
 
 		.wrapper{
@@ -49,7 +48,8 @@
 	<br>
 	<br>
 	
-	<script>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script text/javascript>
 		var $wrapper = $('\
 			<div class="wrapper">\
 		<p>\
@@ -77,8 +77,6 @@
 			obj.css('left',($(window).width() - obj.outerWidth())/2 + $(window).scrollLeft())
 				.css('top',($(window).height() - obj.outerHeight())/2 + $(window).scrollTop());
 		}
-
-
 	</script>
 </body>
 </html>

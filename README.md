@@ -45,9 +45,13 @@ css3练习
 * [导航栏](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/css3%E7%BB%83%E4%B9%A0/css3nav.html)<br>
 
 js练习
+<<<<<<< HEAD
 -----
 * [addAD](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/addAD.html)<br>
 * [alertlogin](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/alertlogin.html)<br>
 * [fastReading](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/fastReading.html)<br>
 * [mouse](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/mouse.html)<br>
 * [tab](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/tab.html)<br>
+=======
+------
+>>>>>>> 8c7bc3977e7fbe19bc8b96383b5c5da25319805d
