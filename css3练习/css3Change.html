@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3</title>
+	<style>
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		.wrapper{
+			position: absolute;
+			top:100px;
+			left:100px;
+		}
+		.nav{
+			height:200px;
+			width:200px;
+			border:1px solid #eee;
+			border-radius: 100px;
+		}
+		.nav div{
+			width:200px;
+			height:200px;
+			border-radius: 100px;
+		}
+
+		.wrapper a {
+			text-decoration: none;
+			padding: 15px;
+		}
+		#pic1{
+			background: url(./image/1.png) no-repeat;
+		}
+		#pic2{
+			background: url(./image/2.png) no-repeat;
+		}
+		#pic3{
+			background: url(./image/3.png) no-repeat;
+		}
+		.nav > div:not(:target) {
+			display:none;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div class="wrapper">
+			
+		<p>换个背景~</p>
+		<div class="nav">
+			<div id="pic1"></div>
+			<div id="pic2"></div>
+			<div id="pic3"></div>
+		</div>
+
+		<a href="#pic1">pic1</a>
+		<a href="#pic2">pic2</a>
+		<a href="#pic3">pic3</a>
+	</div>
+
+</body>
+</html>

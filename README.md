@@ -29,3 +29,7 @@
 ------
 * [cube](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/3D效果/cube.html)<br>
 * [navBar](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/3D%E6%95%88%E6%9E%9C/navBar.html)<br>
+
+计时器
+------
+* [计时器](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/%E8%AE%A1%E6%97%B6%E5%99%A8/counter.html)<br>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding : 0;
+			margin : 0;
+		}
+		#demo{
+			display:block;
+			height:200px;
+			width:200px;
+			background-color:red;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<a href="http://www.baidu.com" id = "demo">第一次点击为广告效果，第二次点击为正常的链接。</a>
+</body>
+	<script>
+		//第一次点击为广告效果，第二次点击为正常的链接。
+		var a = document.getElementById('demo');
+		a.addEventListener('click',ad,false);
+
+		function ad(e) {
+			alert('This is a ad!');
+			e.preventDefault();
+			this.removeEventListener('click',ad,false);
+		}
+
+	</script>
+</html>

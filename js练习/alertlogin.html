@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登陆界面的弹出框</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style>
+
+		.wrapper{
+			position:absolute;
+			height:200px;
+			width:200px;
+			border:2px solid black;
+			padding:20px;
+		}
+
+		.wrapper .close{
+			position:absolute;
+			top:0px;
+			right:0px;
+		}
+
+	</style>
+</head>
+<body>
+	<button class='login'>login</button>
+	<!-- <div class="wrapper">
+		<p>
+			<label for="username">username:</label><input type="text" id="username">
+		</p>
+
+		<p>
+			<label for="password">password:</label><input type="password" id="password">
+		</p>
+		
+		<input type="submit" value="submit">
+		<button class="close">X</button>
+	</div> -->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	<script>
+		var $wrapper = $('\
+			<div class="wrapper">\
+		<p>\
+			<label for="username">username:</label><input type="text" id="username">\
+		</p>\
+		<p>\
+			<label for="password">password:</label><input type="password" id="password">\
+		</p>\
+		<input type="submit" value="submit">\
+		<button class="close">X</button>\
+	</div>');
+
+		$('.login').on('click',function (e) {
+			$('body').append($wrapper);
+			redirection($wrapper);//将弹出框放到中间位置。
+			$(window).on('scroll', function (e){
+				redirection($wrapper);
+			});
+			$('.close').on('click',function (e) {
+				$wrapper.remove();
+			});
+		});
+
+		function redirection(obj) {
+			obj.css('left',($(window).width() - obj.outerWidth())/2 + $(window).scrollLeft())
+				.css('top',($(window).height() - obj.outerHeight())/2 + $(window).scrollTop());
+		}
+
+
+	</script>
+</body>
+</html>

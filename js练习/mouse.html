@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标事件</title>
+	<style>
+		div{
+			width:100px;
+			height:100px;
+			border:1px solid red;
+		}
+
+	</style>
+	<script src="tools.js"></script>
+</head>
+<body>
+	<div></div>
+	<p></p>
+	<script type="text/javascript">
+
+		var div = document.getElementsByTagName('div')[0];
+		var p = document.getElementsByTagName('p')[0];
+		
+		//控制台中输出鼠标位置。
+		div.onmousemove = function(e) {
+			// console.log(e.button);
+			p.innerText = "鼠标点坐标：（" + e.clientX + "," + e.clientY + ")";
+		}
+		div.onmouseover = function (e) {
+			div.style.backgroundColor = 'blue';
+		}
+		div.onmouseout = function (e) {
+			div.style.backgroundColor = 'black';
+		}
+		
+	</script>
+</body>
+</html>

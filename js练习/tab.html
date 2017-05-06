@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding:0px;
+			margin:0px;
+		}
+
+		.wrapper div{
+			width:200px;
+			height:200px;
+			border:2px solid red;
+			display:none;
+		}
+
+		button{
+			width:50px;
+			height:50px;
+			background-color: orange;
+
+		}
+
+		.wrapper .active{
+			background-color: yellow;
+		}
+
+	</style>
+
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+
+	<div class="wrapper">
+		<button>1</button>
+		<button>2</button>
+		<button>3</button>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+	</div>
+
+	<script>
+		//选项卡的编写
+		var btn = $('.wrapper button');
+		btn.click(function (e){
+			btn.removeClass('active');
+			$(this).addClass('active');
+			$('.wrapper div').css('display','none');
+			$('.wrapper div').eq($(this).index()).css('display','block');
+		});
+
+	</script>
+	
+</body>
+</html>
