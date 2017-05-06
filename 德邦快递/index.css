@@ -18,13 +18,14 @@
 }
 /*注册*/
 .login{
-	position:absolute;
+	position:fixed;
 	width:500px;
 	height:296px;
 	background-color: #fff;
 	z-index:1000;
 	color:#666;
 	display: none;
+	overflow:hidden;
 }
 .login .close{
 	width:50px;
