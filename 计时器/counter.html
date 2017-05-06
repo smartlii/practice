@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		.wrapper {
+			position: absolute;
+			padding:10px 20px;
+			border:1px solid #ccc;
+			display: inline-block;
+			left: 50%;
+			top: 50%;
+			margin-left: -200px;
+			margin-top:-150px;
+		}
+		p {
+			margin: 20px 0;
+		}
+		button {
+			width: 80px;
+			height: 20px;
+			margin-bottom: 20px;
+			margin-right: 10px;
+		}
+		input {
+			width: 50px;
+			height: 20px;
+			padding-left: 5px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wrapper">
+
+		<p>计时器</p>
+		<button class="begin">开始</button>
+		<button class="end">结束</button>
+		<button class="clear">清零</button>
+		<br>
+		<input type="text" class="minutes" value="0"> :
+		<input type="text" class="seconds" value="0"> :
+		<input type="text" class="milliseconds" value="0">
+
+		<p>网页打开时间：</p>
+	</div>
+
+	<script>
+
+		var wrapper = document.getElementsByClassName('wrapper')[0];
+
+		var date = new Date();
+		var op = document.createElement('p');
+
+		op.innerText = date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日'+'\t'+'星期' + date.getDay() + '\t' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+
+		wrapper.appendChild(op);
+
+
+		var minute = document.getElementsByClassName('minutes')[0],
+			second = document.getElementsByClassName('seconds')[0],
+			ms = document.getElementsByClassName('milliseconds')[0],
+			minutesCount = 0,
+			secondsCount = 0,
+			msCount = 0;
+
+		
+		//实现定时器的计数、清零功能。
+		var begin = document.getElementsByClassName('begin')[0],
+			end = document.getElementsByClassName('end')[0],
+			clear = document.getElementsByClassName('clear')[0];
+
+		//定义计时函数
+		function count() {
+				msCount ++;
+				if(msCount == 60) {
+					secondsCount ++;
+					msCount = 0;
+					second.value = secondsCount;
+				}
+				ms.value = msCount;
+				if(secondsCount == 60) {
+					minutesCount ++;
+					secondsCount = 0;
+					minute.value = minutesCount;
+				}
+				second.value = secondsCount;
+
+			}
+
+		begin.onclick = function() {
+			var temper1 = window.setInterval(count, 20);
+			end.onclick = function() {
+				window.clearInterval(temper1);
+			}
+		}
+
+		clear.onclick = function() {
+			minute.value = 0;
+			second.value = 0;
+			ms.value = 0;
+		}
+	</script>
+</body>
+</html>
