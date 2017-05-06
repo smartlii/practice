@@ -10,22 +10,22 @@
 }
 /*注册背景*/
 .mask{
-	position:absolute;
+	position:fixed;
 	background-color: #373c64;
 	opacity:0.5;
 	z-index: 100;
 	display:none;
+	overflow: hidden;
 }
 /*注册*/
 .login{
-	position:fixed;
+	position:absolute;
 	width:500px;
 	height:296px;
 	background-color: #fff;
 	z-index:1000;
 	color:#666;
 	display: none;
-	overflow:hidden;
 }
 .login .close{
 	width:50px;
