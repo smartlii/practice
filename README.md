@@ -1,4 +1,4 @@
-项目样式展示
+﻿项目样式展示
 ==========
 物体运动
 -------
@@ -40,6 +40,14 @@
 
 css3练习
 ------
-* [弹出相应索引](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/css3%E7%BB%83%E4%B9%A0/alertIndex.html)<br>
+* [弹出索引](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/css3%E7%BB%83%E4%B9%A0/alertIndex.html)<br>
 * [改变样式](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/css3%E7%BB%83%E4%B9%A0/css3Change.html)<br>
 * [导航栏](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/css3%E7%BB%83%E4%B9%A0/css3nav.html)<br>
+
+js练习
+-----
+* [addAD](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/addAD.html)<br>
+* [alertlogin](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/alertlogin.html)<br>
+* [fastReading](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/fastReading.html)<br>
+* [mouse](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/mouse.html)<br>
+* [tab](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/tab.html)<br>
