@@ -92,7 +92,7 @@
 				oUl.style.display = 'block';
 				var html="";
 				for (var i =0; i < data.s.length; i++) {
-					html += '<li><a href="https://www.baidu.com/s?wd="' + data.s[i] + '>' + data.s[i] + '</a></li>';
+					html += '<li><a href="https://www.baidu.com/s?wd=' + data.s[i] + '">' + data.s[i] + '</a></li>';
 				}
 				 // console.log(html);
 				oUl.innerHTML = html; 
@@ -104,7 +104,7 @@
 
 		oIp.onkeyup = function(){
 			if (this.value) {
-		var oScript = document.createElement('script');
+				var oScript = document.createElement('script');
 				oScript.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=" + this.value + "&cb=WaSee";
 				document.body.appendChild(oScript);
 				oA.setAttribute("href","https://www.baidu.com/s?wd=" + this.value);
