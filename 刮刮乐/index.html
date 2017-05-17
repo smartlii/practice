@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>刮刮乐</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+		}
+
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="400" height="200"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas'); // 画板
+		var ctx = canvas.getContext("2d"); // 画笔
+		// var h = 
+		ctx.beginPath();
+		ctx.rect(0,0,400,200);
+	    ctx.strokeRect(0,0,400,200);
+
+	    ctx.fillStyle="red";
+	    ctx.fillRect(0,0,400,400);
+
+	    //鼠标按下 获取offset
+	    var a,b;
+	    
+	    
+	    if(Math.random()>=0.5){
+	      	canvas.style.backgroundImage="url('1.jpg') width=";
+	      	if(getTransparentPercent(ctx,200,100)>=70){
+	    		ctx.clearRect(0,0,200,100);	
+	    		console.log("你中奖了!!!");
+    		}
+	    }else{
+	      	canvas.style.backgroundImage="url('2.jpg')";
+	    }
+	    // canvas.onmousedown=function(){
+	    	 
+	    //     canvas.onmousemove=function(e){
+	        	
+	    // 	a=parseInt(e.clientX)-100-20;
+	    // 	b=parseInt(e.clientY)-100-20;
+	    // 	ctx.clearRect(a,b,40,40);
+	    // 	if(getTransparentPercent(ctx,200,100)>=70){
+	    // 	ctx.clearRect(0,0,200,100);	
+	    // 	}
+	    //   }
+	    // }
+
+		function getTransparentPercent(ctx, width, height) {
+		    var imgData = ctx.getImageData(0, 0, width, height),
+		        pixles = imgData.data,
+		        transPixs = [];
+		    for (var i = 0, j = pixles.length; i < j; i += 4) {
+		        var a = pixles[i + 3];
+		        if (a < 128) {
+		            transPixs.push(i);
+		        }
+		    }
+		    return (transPixs.length / (pixles.length / 4) * 100).toFixed(2);
+		}
+
+		var imgData = ctx.getImageData(0, 0, 400, 200),
+		    pixles = imgData.data;
+		canvas.onmousedown = function(event) {
+			var event = event || event.target;
+			canvas.onmousemove = function(event) {
+				ctx.clearRect(event.clientX,event.clientY,40,20);
+				// console.log(pixles.length);
+		    	if(getTransparentPercent(ctx,200,100)>=70){
+		    		ctx.clearRect(0,0,200,100);	
+		    		console.log("你中奖了!!!");
+		    	}
+			}
+			canvas.onmouseup = function(event) {
+				canvas.onmousedown = null;
+				canvas.onmousemove = null;
+			}
+		}
+	</script>
+</body>
+</html>
