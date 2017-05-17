@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="ajax.js"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		ul {
+			width: 1050px;
+			margin: 0 auto;
+		}
+		ul li {
+			width: 205px;
+			margin-right: 10px;
+			float: left;
+		}
+		ul li div {
+			width: 180px;
+			padding: 5px;
+			border: 1px solid black;
+		}
+		ul li div img {
+			width: 180px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+		</li>
+		<li>
+		</li>
+		<li>
+		</li>
+		<li>
+		</li>
+	</ul>
+	<script>
+		//初始化
+		var oLi = document.getElementsByTagName('li');
+		function getMinHeightLi () {
+			var currHeight = oLi[0].offsetHeight;
+			var index = 0;
+			for (var i=1; i<oLi.length;i++) {
+				if (currHeight > oLi[i].offsetHeight ) {
+					currHeight = oLi[i].offsetHeight;
+					index = i;
+				}
+			}
+			return index;
+		}	
+		function addImg (data) {
+			var d = JSON.parse(data);
+			for (var i=0; i < d.length ;i++) {
+				var index = getMinHeightLi();
+				var oDiv = document.createElement('div');
+				var oImg = document.createElement('img');
+				// 图片加载需要时间 所以需要提前设置图片的高度在li中进行占位
+				oImg.style.height = d[i].heigth/d[i].width * 180 + 'px';
+				
+				oImg.src = d[i].preview;
+				oDiv.appendChild(oImg);
+				oLi[index].appendChild(oDiv);
+			}
+			loadDone = true;
+		}	
+		/*
+		API:
+		get
+			getPics.php
+		
+				参数
+				cpage : 获取数据的页数
+		*/	
+		var iPage = 1;	
+		var loadDone = true;	
+		function loadImage () {
+			if (loadDone) {
+				loadDone = false;
+				Ajax('get','getPics.php',true,addImg,'?cpage=' + iPage++);
+			}		
+		}
+		loadImage();
+		window.onscroll = function () {
+			var index = getMinHeightLi();
+			var liHeight = oLi[index].offsetHeight;
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;			
+			if ((scrollTop + clientHeight) > liHeight) {
+				loadImage();
+			}
+		}	
+		
+	</script>
+</body>
+</html>

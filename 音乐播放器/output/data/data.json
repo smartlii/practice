@@ -1,0 +1,52 @@
+[
+    {
+        "image": "./source/img/album1.png",
+        "audio": "./source/audio/audio1.mp3",
+        "song": "丑八怪",
+        "rhythm": "李荣浩",
+        "lyric": "甘世佳",
+        "album": "意外",
+        "singer": "薛之谦",
+        "duration": 248
+    },
+    {
+        "image": "./source/img/album2.png",
+        "audio": "./source/audio/audio2.mp3",
+        "song": "你还要我怎样",
+        "rhythm": "薛之谦",
+        "lyric": "薛之谦",
+        "album": "意外",
+        "singer": "薛之谦",
+        "duration": 310
+    },
+    {
+        "image": "./source/img/album3.png",
+        "audio": "./source/audio/audio3.mp3",
+        "song": "认真的雪",
+        "rhythm": "薛之谦",
+        "lyric": "薛之谦",
+        "album": "未完成的歌",
+        "singer": "薛之谦",
+        "duration": 255
+    },
+    {
+        "image": "./source/img/album4.png",
+        "audio": "./source/audio/audio4.mp3",
+        "song": "演员",
+        "rhythm": "薛之谦",
+        "lyric": "薛之谦",
+        "album": "绅士",
+        "singer": "薛之谦",
+        "duration": 261
+    },
+    {
+        "image": "./source/img/album5.png",
+        "audio": "./source/audio/audio5.mp3",
+        "song": "2 soon",
+        "rhythm": "我哪知道啊",
+        "lyric": "我也不知道",
+        "album": "Not Thinking Bout 2morrow",
+        "singer": "so young",
+        "duration": 198
+    }
+]

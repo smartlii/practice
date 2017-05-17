@@ -1,0 +1,10 @@
+<%
+    var len = obj.length;
+
+    for (var i = 0; i < len; i++) {
+        var curData = obj[i];
+ %>
+    <li data-index="<%= i %>">
+        <h3><%= curData.song %><span> - <%= curData.singer %></span></h3>
+    </li>
+ <% } %>

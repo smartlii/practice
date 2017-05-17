@@ -1,0 +1,13 @@
+{
+    "res": {
+        "css/index.css": {
+            "uri": "/css/index.css",
+            "type": "css"
+        },
+        "js/index.js": {
+            "uri": "/js/index.js",
+            "type": "js"
+        }
+    },
+    "pkg": {}
+}

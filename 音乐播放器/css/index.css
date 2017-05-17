@@ -1,0 +1,220 @@
+/*默认样式*/
+p, h1, h2, h3, h4, h5, div, a {
+    color: #000;
+    font: 14px/20px Helvetica, sans-serif, arial;
+    margin: 0;
+}
+
+/*先定义好样式，便于我们后面样式的开发*/
+
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    background-color: white;
+    margin: 0;
+    /*css3中有一个单位 vw vh 
+        vw：将视口宽度分成100份，width 100vw 表示铺满视口宽度
+        vh：将视口高度分成100分， height 100vh 表示铺满视口高度
+    很多浏览器不支持
+    */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.content-wrap {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin: 0 auto;
+}
+.content-wrap .content {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    padding-top: 60px;
+    box-sizing: border-box;
+    /*总高度和宽度都不变，加上padding*/
+}
+
+/*封面图片*/
+.song-img {
+    width: 50%;
+    height: 0;
+    padding-bottom: 50%;
+    position: relative;
+    background-color: #ccc;
+    margin: 0 auto;
+}
+
+.song-img .img-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.song-img .img-wrap img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    /*去掉图片的默认样式*/
+}
+
+/*歌曲信息样式*/
+.song-info {
+    height: 126px;
+    text-align: center;
+    margin-top: 30px;
+}
+.song-info h1 {
+    font-size: 24px;
+    color: rgba(255, 255, 255, .86);
+    line-height: 36px;
+    margin-bottom: 8px;
+    /*下面是截断样式*/
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.song-info h3 {
+    color: rgba(255, 255, 255, .6);
+    margin-bottom: 6px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+/*进度条样式*/
+
+.play-area {
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+}
+
+.play-area .cur-time, 
+.play-area .all-time {
+    display: block;
+    width: 60px;
+    text-align: center;
+    color: rgba(255, 255, 255, .86);
+}
+
+.play-area .pro-wrap {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    padding-left: 5px;
+}
+/*背景进度条*/
+.play-area .pro-bottom {
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 20px;
+    background-color: rgba(255, 255, 255, .6);
+}
+/*前景进度条*/
+.play-area .pro-top{
+    height: 1px;
+    background-color: #fff;
+    z-index: 100;
+    transform: translateX(-100%);
+}
+/*小圆点样式*/
+.play-area .pro-top .slide-point {
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    right: -10px;
+    top: -10px;
+}
+.play-area .pro-top .slide-point::after {
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 8px;
+    left: 6px;    
+}
+
+/*按钮区域样式*/
+.play-control {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    overflow: hidden;
+}
+
+/*每个按钮区域的样式*/
+.play-control .btn-wrap {
+    flex: 1;
+    /*flex的居中*/
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+/*每个按钮icon的样式*/
+.play-control .btn-wrap span{
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*为每一个按钮定义背景图片*/
+
+.play-control .btn-wrap .like-btn {
+    background-image: url(../img/icon-like.png?__inline);
+}
+.play-control .btn-wrap .like-btn.disabled {
+    background-image: url(../img/icon-like-solid.png?__inline);   
+}
+.play-control .btn-wrap .pre-btn {
+    background-image: url(../img/icon-prev.png?__inline);
+}
+.play-control .btn-wrap .play-btn {
+    background-image: url(../img/icon-play.png?__inline);
+}
+.play-control .btn-wrap .play-btn.playing {
+    background-image: url(../img/icon-pause.png?__inline);   
+}   
+.play-control .btn-wrap .next-btn {
+    background-image: url(../img/icon-next.png?__inline);
+}
+.play-control .btn-wrap .list-btn {
+    background-image: url(../img/icon-list.png?__inline);
+}
+
+
+/*icon小图片
+    如果一个cion是一个单独的图片，我们分别请求，请求十次
+    第一种雪碧图，10个icon做成一张图片
+
+    base64方法，直接将icon转换成base64没放到backgournd-iamge中
+    这样就相当于把icon直接放到css文件里面,减少了请求，加快了加载速度
+
+*/

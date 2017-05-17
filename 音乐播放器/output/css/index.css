@@ -1,0 +1,218 @@
+/*默认样式*/
+p, h1, h2, h3, h4, h5, div, a {
+    color: #000;
+    font: 14px/20px Helvetica, sans-serif, arial;
+    margin: 0;
+}
+
+/*先定义好样式，便于我们后面样式的开发*/
+
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    background-color: white;
+    margin: 0;
+    /*css3中有一个单位 vw vh 
+        vw：将视口宽度分成100份，width 100vw 表示铺满视口宽度
+        vh：将视口高度分成100分， height 100vh 表示铺满视口高度
+    很多浏览器不支持
+    */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.content-wrap {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin: 0 auto;
+}
+.content-wrap .content {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    padding-top: 60px;
+    box-sizing: border-box;
+    /*总高度和宽度都不变，加上padding*/
+}
+
+/*封面图片*/
+.song-img {
+    width: 50%;
+    height: 0;
+    padding-bottom: 50%;
+    position: relative;
+    background-color: #ccc;
+    margin: 0 auto;
+}
+
+.song-img .img-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.song-img .img-wrap img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/*歌曲信息样式*/
+.song-info {
+    height: 126px;
+    text-align: center;
+    margin-top: 30px;
+}
+.song-info h1 {
+    font-size: 24px;
+    color: rgba(255, 255, 255, .86);
+    line-height: 36px;
+    margin-bottom: 8px;
+    /*下面是截断样式*/
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.song-info h3 {
+    color: rgba(255, 255, 255, .6);
+    margin-bottom: 6px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+/*进度条样式*/
+
+.play-area {
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+}
+
+.play-area .cur-time, 
+.play-area .all-time {
+    display: block;
+    width: 60px;
+    text-align: center;
+    color: rgba(255, 255, 255, .86);
+}
+
+.play-area .pro-wrap {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    padding-left: 5px;
+}
+/*背景进度条*/
+.play-area .pro-bottom {
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 20px;
+    background-color: rgba(255, 255, 255, .6);
+}
+/*前景进度条*/
+.play-area .pro-top{
+    height: 1px;
+    background-color: #fff;
+    z-index: 100;
+    transform: translateX(-100%);
+}
+/*小圆点样式*/
+.play-area .pro-top .slide-point {
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    right: -10px;
+    top: -10px;
+}
+.play-area .pro-top .slide-point::after {
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 8px;
+    left: 6px;    
+}
+
+/*按钮区域样式*/
+.play-control {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+}
+
+/*每个按钮区域的样式*/
+.play-control .btn-wrap {
+    flex: 1;
+    /*flex的居中*/
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+/*每个按钮icon的样式*/
+.play-control .btn-wrap span{
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*为每一个按钮定义背景图片*/
+
+.play-control .btn-wrap .like-btn {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCA8PNAuVJ4f3AAAEnElEQVRo3uXZW4hVVRzH8f85ppmNlaBE5nRx7DpNCSNEF8gukhZ0sSjUICiCsujyUuFLURAahdSD9VJgdIFKeim6YCkFkpV0oYtoo5kmk2mmzjQzNud8ejh7nBk958zZe5ozD+3/01lr/X7/79p77bPX/u+cGN0jP8r546iKPbm4MC6Ok2NqnBDboy3aYlN8V+OkZsaMmB5N0Rh7Y2f8FutifVQ61cpFsxftdOTxo3tNFFViskdsLaPc6UXN5RTlLFboTWQF7b621i+Kh6z2W25C2eRTvaL70Liibdb6WrtC0tJrhclDAcy1F/RYZcGA2R6jxSJfJFbfmn5E+sv9nvSusdDMAZATLbBKD9hrbjWA+5O5ryqToBTzfA7+dM2A1pwlifI9F1dQTrcqOQ/3VwJ4HPxlXtWrHO7Qi4KbD7W8BHa7ZAjlPPvA4+UAblLEVucOYRLCjbqx35lCWAy2O6cGZYtfUXTT4QDn6cAu02owCWGODnznGBc5iI1OqVF5mt3ocN5ggM/Q64oaTUJYBN70G/aZmkJ5pV58NhDgevBECpM+6NLxQEplabVd3wcwxk9od2xKm5nJHf6NMSmVE+zET8aUAK4G96Q0CWEFihVvvGpxF7i6BLASe43LYHOyf7yfQRfG2oOVIoy3Dy9lsglvuTaj8mXsMz7MBVdltGmWz6i8BszNxwURUYhPMz7Of4hiRuWaKEbEBfloiYi2OPjfbC9SHF3RFhEtJYAf654+IuL7EsC0iNg0KgCbI2JaPhoi4sCoAByIiIZ8dEXEpFEBmBQRXfn4OSJmjArAjIj4uQTQNCoATSWAzRHRFLm6p89FU0RsLgGMj+a6AzTH+BLA6hARN9Qd4IaIEKtDWIevMv6jZ4+vsE7kI+KdiGiNxrrOvzFak8xCE1ha1/kvBU19e8J30WFK3dJP0YF3RR/ALPB03QCeBrP6AUrnoFNjXdI36uybfz9AqwLWZN7f1B55a1DQOhggLAMPjzjAw2BZ3+/+jnE2oKePbISiVQ829O/BB3aerRPtzhqx9GdpR6ez+9sGD1ioiO1OH5H0p9uOooUDWw8fVHrV3jIC90OjLWDx4PYjBz6avO3XUieoPVrsAI8e3lNu8JNgj4v+s/Sz/VXp/bu84EFFdGZ+7Roct+hGwX3leiuJFjiIf9w+7PSlyXSZX76/snCOAygO668p55mkpnZppTHV5LPsAs/KZUo/zutgW7UFXd3ijOTWedXY1OmP83FS1KxaPxrK5iTfgPdTFnCm+hZ84vjqI4e2Ot5asP7IOm/FOMc28MbQdZda7I5OiqwbnVpT+kvsqX3t1DajvBfAjr7yYpW4UReKHqrtbNV+VR9Lqt2XVh21WAE9bq3VN83CulsBf7uu4oinknL37Npd0wCE+brR684yfWOtTC5TSxrPdADhsuSxsuSw9gYfgB/SPsjTAoTzk69Jzw1Y4yfaAD41Ka1feoBwmk2D7vIztIG3HZ3eLQtAmOJL8JEGF/oDPJ9tS58NIDT4EHyvc3jPzKwAYazXkq8FB92W2WUYACFnOfZnrjMPGyCEB8wcnkPuf//1/F8GuXduvHHldQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNi0wOC0xNVQxNTo1MjoxMSswMjowMMmA4yQAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTYtMDgtMTVUMTU6NTI6MTErMDI6MDC43VuYAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==);
+}
+.play-control .btn-wrap .like-btn.disabled {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCA8PNBlmnva/AAAC+UlEQVRo3s2ZPUsjURSGn0ziF4KCZCGRdYlutVauLMJiZaP+AAU7/4CVhWKvIvgP1MZCQcFCwcrCQmRBxLXwAwQV/EBBBRUU3EXfLdxsTMzMZGaS3D3TJTnnee5Ncu+dMyFhNizDfCIO74WpJ0acKNeccMolLzkPK0Ydn4hyzQWXHPNs+1llu6rUoxndKD0etaAulQuHq1xdWtBjRuaNZtSjqmwZ71+q0JBuZR/3mlQ8KzyuSd07ZN5qSBVuAt06l3vcq1+RtLyI+h3hyThXt72ApdEcSiRjR43/Mhu14yFzVFY2gTIteSgiSVdqFkLNuvKYuaSy9wLTHotI0q1a1er4i7GL6UyBQR9FJOlBDz4zB1/JIQG08KPoS9IL39lIroRjBlZEi7HkQtTucxKDR7uwgIGijz4ZAxBSNVeUGBL4zQeLDmN4KKHDotMYHqDTImFUIGERNyoQt4gZFYhZlBoVKLU4MypwZnFqVOD0P5iBY6MCxxbLRgWWQ4JDGgzhj/hsAfPGxj//eiCZMyYw9yqwzaoR/Crb/D0TfmODUJHxooXN5Jlw08DXMMcmJGcAGtgv6q7wiy8cQao/cMR4Ucc//ornzZ1RWGtFOw2vKZzkht60aD7yk2gRRn/N19QO9PaG5IxeCt8yEr1pG2BGf2Ck4NM/4tYhmSgofsK9RWNptmD42betCTsBFNFiQfCLGW0dWwFUppW841dSXRF3AVSp9bzi11WZnWTf8avWVt7wW6q24zg1HaPaywt+T1F7ipMAqtVhYPyhap0YzgIooZNA+BMlnAluAqhOu77xu6pzq+8ugGp8/iPWVeNePRcBVOG5iyotvW9M+xdAYU15wk+ldvz8CCA0nDN+OPeqXgRQn55d4c/q81LTmwDq1pMj/inzeUC+BVCb7mzxd2rzWs+7AGrSRVb8hZq8V/MjgOp18A5/oHo/tfwJoJj20/D7ivmr5FcgXcE3PohASiEAPv3GxHvEWAXauPRfIpgAxCAIPrhA4DD+9PwPbiBDpp9So18AAAAldEVYdGRhdGU6Y3JlYXRlADIwMTYtMDgtMTVUMTU6NTI6MjUrMDI6MDCzQMDUAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE2LTA4LTE1VDE1OjUyOjI1KzAyOjAwwh14aAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII=);   
+}
+.play-control .btn-wrap .pre-btn {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCA8PLiJnuOVAAAADbUlEQVRo3sXZfWhVZQDH8Y9zrlYzrZFIIcUokNzmWg0zxQVhBEkvtIjC0RQ2SIhBUUpF2Rs4yWJSVlpaTqxo0gwlS7SWiplaa2YI0QgkkIWhYhi+7PTHDjPu9O7e3XOfPeefy3mec75ffufC+Z1zRFK2iuhg1BmNHbQ/121GtCXaEZWm7h+8sDWKoihqSBReFC2JzkVRFEVLU+cKpY5xYLzkRqU2lfHvCamTBQmCLjQKPGPvAP6CC/I5ynRqUYQz9oYXaPSzmeCgadaHFZhok5VK0GeZW/x0sYWFWZw08/Gg95SCPzToTLc0+QTGadMe49eoTI9PPoE7rTEJ9GqycegDkkygWKutMb5DeSb4JBO4VZvJ4IRmH2Z6WDIJFHrR7hj/rcrM8ckkMNlaNeBfz3lTlJ17bmOUJyxRDH5U79dsT5DbJZhkq1bFOOdVt2WPzy2Bud6K752/qbdneCcZbgKl2rXF+BWqhosfbgL3eN9E8Kf5vh4ufHgJlFhpU4z/WEVu+OwTmOkjZeBvC3yaGzzbBIos0Rnjt6hIAp9NAueb3T+e9k4S8MwTKLBwoNntVpUcPrMEyqw1A5yxWItzyeEzEWj0hhJw0FxdScIZ6hKkNrvE8ekTqPPuQLN7zHfJw9MlMF6bz2L8apX5wl88gReMAr0afZEveLoE+vEdyvOLT/cnPGGeB/yVX3z+H05zELjCGp+7eqQE+ovl/X5x78gIvGwdmGCjD4wNL3BMvYccBfN1mxVaANqV2wyu943XXRJagCPmaHISBZ6yX1VoAVhlql1gih88a3RoAXrMsshpjPGaHW4ILUCfFjW6wXRdHg8tAN1qtOjD5Vb40jWhBThtkVo94G4HPBxaAHaaahW4yifWuzK0ACc1meMIeMQBd4UWgM3KbQDX+srbLgstwFF16h0HC3SZFloA1qmwDdxol1eMCS3AYbM1O4XRnve9m0ILEFmuOn4TXm2/J+M2GUwADrndYmdxqWW2uy60AGe9ZLpD4A7dGkILwD7Vlotk2SaTbMWnNJvtMPrb5H2hBWCbioE22WH10G0y+eeC4+rVxW1ynm61oQVgw//a5Pb0bTJfT0apbfLm0AL0t8mdYIo9Hg0vQI9aC+M2WTMSAvRZOtAmMxTov8UeS1DifJukd9BswM/3+6LfB3++/w+wTZDpuv6r2wAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNi0wOC0xNVQxNTo0NjozNCswMjowMBH4tEQAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTYtMDgtMTVUMTU6NDY6MzQrMDI6MDBgpQz4AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==);
+}
+.play-control .btn-wrap .play-btn {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCA8PLBSaNBJbAAADfUlEQVRo3sXZe6zXcxzH8cc5uizdcGQNjYWt0e84qiNWRBlzmbJsLIWDXFd/VFNjLptYN7ZC5sTp6CRMTVGkhEqaTlKdmA2NucwYRm5dzvn443x3Rqd+53d+v9/34/397/v7fL/P5+/1/f7x2vcjOOgoCxvD6jCk1fmUjtanZoUQQmgMM0KnGAKlDp7jQKmp6pVLfUqz/Fau3tSsK1IUqLcfncywXt//Q2CJwT4GQ+0wPr4AHxnoUU3optpKvWMLsNcUw30JLrfL6NgCsF65haDMUnV6xhZgj5uM8gMYq8GI2AKwQn/LQR9rzdUltgA/ukqV31Biom0qYwtArXLvgn7e96AOsQX4ynCT/Y0OHrBZv9gCBI8ZaBsYZJuJSuIKwCfOMV0juphrrT6xBdjvPkN8BkZoMC62AHygwnzQ0yJLHRtbgD/d5RLfgtEaXBFbANbIeAH09poFusUW4BdjXOtncIsdhsYWgJdkrAZ9rTdTp9gCfOdSd/oDpe62Nfc2WczG95QKm0Em9zZZ3Mr5ufPc29ImNzgltgCNHnF20iaH2O7W2AKw/V9t8mmrsrfJdFr/XlNcmLTJy+xydWwB2KBcDSjzssWOii3AHjcbmbTJ6zS4KLYAvNrSJk+0xrzWvLQF/tsmJxgTX6CNKUqxzDq9VBsFgicsiS1wpQXJF4dvVHmr9YI0H0F3z1qR4J+XORQ+zQTO95yTwU9ut/Rwy9JJoLM53knwr+t/eHw6CVRY7Azwu8mqsy8udgJHuMeWBL9JRVv4YidwqkXOBfvcb7amti8ppsAdZusKGoy1M7eLivUIjveG+bqiySyDcsUXK4FrzHcM2O0G77Xn0sITONoSLyb4Z5zZPnzhCVysxgnge+OtbP8NCkngSE96M8Evk8kHX0gCg9U5Dfxqgrp8b5NfAh09ZFOCXyeTPz6/BE5XZwD4yzSPC/nj259AiUk+TPBbDTCvMHx7EzhJrQvAAQ+b7kBh8PYK3GiuHuBT16svHE7uj6CXVyzUA8E8A4qFzzWBkaqTavW1KuuKBc8tge5qLE/wi2WKi287gWFqW5rdbZYVF95WAp3N8XaCX6V/GvhsCZylrqXZTbIgDTgOsXNaG0IIYUvYF5pnY+gbd+e0eSp1xD7TDLM7tX8v+0u407jcq1W+0zqB5g8KTWaqTB/vEO9AWfgibI23ff8P9RjT3J4FKvcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTYtMDgtMTVUMTU6NDQ6MjArMDI6MDAt6ED0AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE2LTA4LTE1VDE1OjQ0OjIwKzAyOjAwXLX4SAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII=);
+}
+.play-control .btn-wrap .play-btn.playing {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCA8PLRCEQucDAAAAx0lEQVRo3u3ZMQ6CQBCF4cVTaNTGyoRwZxOpLLHzEB4CCgNqYmMoH5XEtRgGgt0/W2123uzXT1Awz1Yn1SqVazPQGZ+9zrqr1EFLu9Mes9ZTn3pp5/4+1bvP1VpNB+T6rsINuES543RAFQ2q3YBHlKus3kTBqN/HJPhqRG7hHPm3AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA24GbeZcjbgatzmyg0sodt+AdsqHbG8dueGRmUq1KhRoWzU+t6d6wDGx82WJbGOyQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNi0wOC0xNVQxNTo0NToxNiswMjowMC91GRMAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTYtMDgtMTVUMTU6NDU6MTYrMDI6MDBeKKGvAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==);   
+}   
+.play-control .btn-wrap .next-btn {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCA8PLg3MadgZAAADeElEQVRo3sXZf2hVZRzH8deWTkyn1VCkkEIKpLa5ZstilqVQhFCGRSEbqSXRD/zDpEXRD8pipgUzWrDRHN1hRZNcKFliNdPEZivnjKCSIoooLM1++WM7/bGDjK27nbt77tn3/Pe9z/N83nzOF+7n3kdgwFMUfBxsDyoH9bN9CoP24FBQMrA/eOHzQRAEQU9QGxTECrA0CIIgqBvYzzewpoJ8NTqUiq/OAZMHtvOH2FKqw8NDroih0h3f4RQKrNVuxmgAbDLHITDXASuSB+Bzs72gFxM12Gpa0gCcsNp834GFui1OGgDaldoIirRKDZ7iXANw3HKL/AKqHLQgaQBoU2wLmG6HOuOTBuBXt1rmD+RZqdMVSQNAs1IfgZn2etKYpAH43nwP+RdjPOUTM5MGIPCi2TpBhU4r5SULAF+6yho9GK/ODtOTBuCUx1X6GixwUFXSALBPmXowWUqroqQB+NsDbvQjWKzbwqQB4H0lXgfTbNVgYtIA/G6JO/0GVjhgbtIA8KYS28EM7WoVJA3AT25yv79knCbjTHyvKLMXfWmyJtrZ8UbOb1zjsTBN1toVJU3GnXl7POfKME1WRkmTuQjdX2SSJnOT+k9Y7fp+afK2pAFgl1JNoMhbUuEvo0EVS6hIU8fdrU2jqagSJO1AX71zJk2myQ25BuifJkcJYJjK5Qz01RQNFqX/ONcO3Kw7lB+FISz0qrbwD48WTycNcK0uy8ERt6t2NEmAcdb70EVgm2Kt6ZfmYgjLtLgM/GmVxqEXx+3AWR71aSi/x6zh5ON24GKvuRqc9IR1eoffEifAfdaZALpU64q2Ka5XcL531ZuAXmtVRJWPy4E71DsPHHaX3Zlszd6Bc23yRijfaFZm8tk7cIMmF4Cf3WNb5gdk48DZXvZeKL9Z8Ujks3FgjpRLwDEPahnpMSNzYKxn7AnldyoZufzIHLhUSjn4xyNeSvdFmxsH8qzyWSjfodyG7OQzdeBCza4Dp63xrNPZiWcKsFSdSeAr1fZnL070VzDF2zaahMAG5XHJR3XgFg1htPrBMjvjEo/mQKEmW84ku5J45Yd3YJ7mMFodca/N8YoP58A4633QL9nlQH4oBy6Xip7s4ndgiX2h/O4oyS5+gApjcVKNeQ7nTn7oIcwg2cXpQN/1VIbJLkIdBccG9f/n+v7bYH9y1/f/AXsjkvLjtIdFAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE2LTA4LTE1VDE1OjQ2OjEzKzAyOjAwlnqNtwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNi0wOC0xNVQxNTo0NjoxMyswMjowMOcnNQsAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC);
+}
+.play-control .btn-wrap .list-btn {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCA8PLzSKd2FQAAACrUlEQVRo3u2ZTYhNYRjHf3e6GaJsfDQflCJqrMyMRoaE3c3ERgkldhQ2pBSanVI+UgaxYsMg30xImqQJC4VZUBYzw8j4qJl8TOZn4cx175lYHe+ZxX3u4t7zdur93fM+z/P+z//NSLpRlvL8ow2gkolpAdTQSjfdfKKTFiYFJBAz7vKbhdHrSgnzQdziyBi0LhTALAdU7XKtVc52R3T93PIwAAdV/eDU/OBih1RdFQIgSy0AB+jNp8UDrtIE1HOpKF2qaaEu0QTsYy9+VnVJEdceVW/FaPeZfLwp4y0AVUVkFQD0xHgfMZR4ET7M8oQ5wAbO5gcn0gRAR+zmW8xgXsJL0I5roodxxLEiVtim6ndnhuoD1/Lt56Jt9kdXu0P1Aazw9YjkaDMbDgDHezSqfdUBt5oJM71k8oJkGg3U008HHXxMPNv/GpmSIioBlADSBshG3+WsYz619POEB1wOSCBinc+LGvENq0J1QsRGB0fsBb1ODgUwIdqKhjzjJrd5L0JoDQWwW9Wf5vKDeyOExhAAWRYAcJzr+bRoZgW1wELai9KlnPWJi9KT2KNa8P8R96t6IUa7+T+I0o5R0AeekgNyBUuQYRkwUpSe4sf/WIKUk3AUlGHqjQhTbcXDmjC1zagkSksAJYDUAbL5X9XUR33gMZ8CEog4zsNpvZ4jTrUzXYPiSjRpl+e9Gdl2AS2aYZPqUGTNTvF2SJMqSw6AO2yPkuI9q3lBJWNYzqtYwsyKfNWkoo+7+FLVtUVcx1Q9HaPNFSRqUnGuLHJFu4vIfrunlTHeejKJF+H8LM9YBDRwv2D494N+Grv5BHMTF6XNw3Z9X4EGWhrSrv9zYPHOjU53tjv9qgY8sEj9yGYUHFoh1thqtzpkpy1OCjW9MVFayQBfEi+1f0ZJFacO8Avw6Kz+nY8ROgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNi0wOC0xNVQxNTo0Nzo1MiswMjowMFuF48cAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTYtMDgtMTVUMTU6NDc6NTIrMDI6MDAq2Ft7AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==);
+}
+
+
+/*icon小图片
+    如果一个cion是一个单独的图片，我们分别请求，请求十次
+    第一种雪碧图，10个icon做成一张图片
+
+    base64方法，直接将icon转换成base64没放到backgournd-iamge中
+    这样就相当于把icon直接放到css文件里面,减少了请求，加快了加载速度
+
+*/
