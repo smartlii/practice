@@ -51,3 +51,7 @@ js练习
 * [fastReading](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/fastReading.html)<br>
 * [mouse](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/mouse.html)<br>
 * [tab](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/tab.html)<br>
+
+悬浮球搜索
+-----
+* [clickSearch](http://htmlpreview.github.io/?https://github.com/smartlii/practice/blob/master/%E6%82%AC%E6%B5%AE%E7%90%83%E6%90%9C%E7%B4%A2/html/index.html)<br>
