@@ -1,5 +1,7 @@
 ﻿项目样式展示
 ==========
+打开demo链接时，该种页面预览方式会产生页面加载延迟。个人博客正努力搭建中。望体谅，谢谢(｡･ω･｡)
+
 物体运动
 -------
 * [加速运动](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/%E7%89%A9%E4%BD%93%E8%BF%90%E5%8A%A8/%E5%8A%A0%E9%80%9F%E8%BF%90%E5%8A%A8.html)<br>
