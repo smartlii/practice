@@ -9,19 +9,29 @@ function change() {
 	var $wrapper = $('.wrapper');
 	var $search = $('.search');
 	var $circle = $('.circle');
+	var $squ = $('.square');
 
 	$wrapper.animate({
-		width: '210px'
+		width: '245px'
 	}, 400);
 
 	$search.animate({
 		width: '140px'
 	}, 400);
+	$squ.animate({
+		width: '40px',
+		left: '190px'
+	}, 400);
 
 	setTimeout(inputChange, 400);
 	setTimeout(function () {
 		if($wrapper.css('width') == '210px') {
-			$('a').attr('href', 'https://www.baidu.com/s?wd=' + $search.val());
+			//如果没有输入文字或者直接点击搜索，默认跳转到百度搜索界面
+			if($search.val() == '请输入关键字' && $search.val() == ''){
+				$('a').attr('href', 'https://www.baidu.com/s');
+			}else{
+				$('a').attr('href', 'https://www.baidu.com/s?wd=' + $search.val());
+			}
 		}
 	}, 400);
 }

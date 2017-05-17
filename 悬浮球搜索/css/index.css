@@ -35,3 +35,15 @@
 	font-size: 16px;
 	color: #888;
 }
+.square{
+	position:absolute;
+	top:5px;
+	left: 20px;
+	width:0px;
+	height:28px;
+	border:1px solid #ccc;
+	line-height: 28px;
+	color:#fff;
+	text-align: center;
+	text-decoration: none;
+}
