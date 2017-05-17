@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+		.wrapper {
+			position: relative;
+			padding: 10px;
+		}
+		.logo img{
+			position: absolute;
+			width:100px;
+			height:30px;
+		}
+		.inp {
+			position: absolute;
+			left:120px;
+			width: 395px;
+			height: 30px;
+			padding-left: 10px;
+		}
+		.inp:focus{
+			outline:none;
+		}
+		.butt {
+			position: absolute;
+			left: 528px;
+			display: inline-block;
+			width: 100px;
+			height: 34px;
+			background-color: #3385ff;
+			font-size:14px;
+			text-align: center;
+			line-height: 35px;
+		}
+		.butt a{
+			color: #fff;
+		}
+		.butt:hover{
+			background-color: #2d78f4;
+		}
+		.oUl {
+			position: absolute;
+			top: 44px;
+			width: 506px;
+			display:inline-block;
+			margin-left: 110px;
+			border:1px solid #ddd;
+			display:none;
+		}
+		li {
+			width: 496px;
+			height: 40px;
+			line-height: 40px;
+			overflow: hidden;
+			white-space: nowrap;
+			padding-left: 10px;
+		}
+		li:hover {
+			background-color: #ddd;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="wrapper">
+		<span class="logo">
+			<img src="./baidu_logo3.png" alt="">
+		</span>
+		<input class="inp" type="text"></input>
+		<span class="butt"><a href="https://www.baidu.com/s">百度一下</a></span>
+		<ul class="oUl"></ul>
+
+	</div>
+
+	<script type="text/javascript">
+
+		var oIp = document.getElementsByClassName('inp')[0];
+		var oA = document.getElementsByTagName('a')[0];
+		var oScript = document.createElement('script');
+		var oUl = document.getElementsByClassName('oUl')[0];
+
+
+
+		function WaSee(data) {
+			if(data.s.length) {
+				oUl.style.display = 'block';
+				var html="";
+				for (var i =0; i < data.s.length; i++) {
+					html += '<li><a href="https://www.baidu.com/s?wd="' + data.s[i] + '>' + data.s[i] + '</a></li>';
+				}
+				 console.log(html);
+				oUl.innerHTML = html; 
+			} else {
+				oUl.style.display = 'none';
+			}
+			 console.log(data);
+		}
+
+		oIp.onkeyup = function(){
+			// console.log(oIp.value)
+			if (this.value) {
+				// console.log(this)
+				oUl.style.display = 'block';
+				oScript.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=" + this.value + "&cb=WaSee";
+				document.body.appendChild(oScript);
+				oA.setAttribute("href","https://www.baidu.com/s?wd=" + this.value);
+			} else {
+				oScript.src = '';
+				oUl.style.display = 'none';
+				oA.setAttribute("href","https://www.baidu.com/s");
+			}
+		}
+
+	</script>
+	
+</body>
+</html>
