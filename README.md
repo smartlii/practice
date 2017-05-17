@@ -54,6 +54,7 @@ js练习
 * [mouse](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/mouse.html)<br>
 * [tab](http://htmlpreview.github.io/?https://github.com/minliAlisa/practice/blob/master/js%E7%BB%83%E4%B9%A0/tab.html)<br>
 
-悬浮球搜索
+百度搜索
 -----
 * [clickSearch](http://htmlpreview.github.io/?https://github.com/smartlii/practice/blob/master/%E6%82%AC%E6%B5%AE%E7%90%83%E6%90%9C%E7%B4%A2/html/index.html)<br>
+* [百度搜索](http://htmlpreview.github.io/?https://github.com/smartlii/practice/blob/master/%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E6%A1%86/baiduSearh_JsonP.html)<br>
