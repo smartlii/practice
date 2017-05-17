@@ -35,6 +35,9 @@
 	font-size: 16px;
 	color: #888;
 }
+.search:focus{
+	outline: none;
+}
 .square{
 	position:absolute;
 	top:5px;
