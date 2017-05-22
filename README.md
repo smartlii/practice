@@ -56,5 +56,5 @@ js练习
 
 百度搜索
 -----
-* [悬浮球搜索](http://htmlpreview.github.io/?https://github.com/smartlii/practice/blob/master/%E6%82%AC%E6%B5%AE%E7%90%83%E6%90%9C%E7%B4%A2/html/index.html)<br>
+* [悬浮球搜索](https://github.com/smartlii/practice/blob/master/%E6%82%AC%E6%B5%AE%E7%90%83%E6%90%9C%E7%B4%A2/html/index.html)<br>
 * [百度搜索框](http://htmlpreview.github.io/?https://github.com/smartlii/practice/blob/master/%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E6%A1%86/baiduSearh_JsonP.html)<br>
